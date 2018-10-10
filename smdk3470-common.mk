@@ -18,6 +18,10 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
 COMMON_PATH := device/samsung/smdk3470-common
 
+# Temp script to disable HW overlays as they are currently broken
+PRODUCT_COPY_FILES += \
+    $(COMMON_PATH)/configs/99-disable_hw_overlays:system/etc/init.d/99-disable_hw_overlays
+
 # HIDL
 PRODUCT_COPY_FILES += \
     $(COMMON_PATH)/configs/manifest.xml:$(TARGET_COPY_OUT_VENDOR)/manifest.xml

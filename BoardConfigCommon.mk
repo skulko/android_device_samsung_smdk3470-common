@@ -60,6 +60,8 @@ TARGET_SOC := exynos3470
 
 TARGET_LD_SHIM_LIBS := /system/vendor/lib/hw/camera.vendor.universal3470.so|libshim_camera.so
 
+TARGET_PROCESS_SDK_VERSION_OVERRIDE += \
+    /system/vendor/bin/hw/rild=27
 # OpenMAX-shims
 TARGET_LD_SHIM_LIBS += \
 	/system/lib/omx/libOMX.Exynos.AVC.Decoder.so|/vendor/lib/libui_shim.so \

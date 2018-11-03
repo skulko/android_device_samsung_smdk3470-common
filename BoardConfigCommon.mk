@@ -62,6 +62,7 @@ TARGET_LD_SHIM_LIBS := /system/vendor/lib/hw/camera.vendor.universal3470.so|libs
 
 TARGET_PROCESS_SDK_VERSION_OVERRIDE += \
     /system/vendor/bin/hw/rild=27 \
+    /system/vendor/bin/hw/android.hardware.camera.provider@2.4-service=22 \
     /system/bin/mediaserver=22
 
 # OpenMAX-shims

@@ -76,6 +76,9 @@ TARGET_LD_SHIM_LIBS += \
 # Seccomp filters
 BOARD_SECCOMP_POLICY += device/samsung/smdk3470-common/configs/seccomp
 
+# Network Routing
+TARGET_NEEDS_NETD_DIRECT_CONNECT_RULE := true
+
 # Audio
 BOARD_USES_LIBMEDIA_WITH_AUDIOPARAMETER := true
 # Use stock HAL

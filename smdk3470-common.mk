@@ -64,7 +64,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     camera.universal3470 \
     camera.vendor.universal3470 \
-    camera.device@1.0-impl-legacy \
     android.hardware.camera.provider@2.4-impl-legacy \
     libshim_camera
 

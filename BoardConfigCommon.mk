@@ -88,7 +88,6 @@ TARGET_EXYNOS3_AUDIO_FROM_SOURCE := false
 TARGET_TINY_ALSA_IGNORE_SILENCE_SIZE := true
 
 # Bluetooth
-BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_BCM := true
 BOARD_CUSTOM_BT_CONFIG := device/samsung/smdk3470-common/bluetooth/vnd_smdk3470.txt
 

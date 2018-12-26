@@ -154,7 +154,7 @@ PRODUCT_PACKAGES += \
 
 # Set bluetooth soc to rome (TODO: check if "cherokee" or "rome")
 PRODUCT_PROPERTY_OVERRIDES += \
-    qcom.bluetooth.soc=rome
+    vendor.qcom.bluetooth.soc=rome
 
 # GNSS HAL
 PRODUCT_PACKAGES += \

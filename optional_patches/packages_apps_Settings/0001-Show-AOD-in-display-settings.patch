@@ -1,0 +1,63 @@
+From 2f5b117e5e9334fd10ac90dab0bd04ef3d425142 Mon Sep 17 00:00:00 2001
+Message-Id: <2f5b117e5e9334fd10ac90dab0bd04ef3d425142.1544538440.git.spookcity138@gmail.com>
+From: Rick M <spookcity138@gmail.com>
+Date: Tue, 11 Dec 2018 15:27:16 +0100
+Subject: [PATCH] Show AOD in display settings
+
+Change-Id: Ic56928de0b65b3dd08e6a95f74937df1219b0e86
+---
+ res/xml/ambient_display_settings.xml                        | 6 ------
+ res/xml/display_settings.xml                                | 6 ++++++
+ .../display/AmbientDisplayAlwaysOnPreferenceController.java | 2 +-
+ 3 files changed, 7 insertions(+), 7 deletions(-)
+
+diff --git a/res/xml/ambient_display_settings.xml b/res/xml/ambient_display_settings.xml
+index 4688a80afc..b23e81cdfa 100644
+--- a/res/xml/ambient_display_settings.xml
++++ b/res/xml/ambient_display_settings.xml
+@@ -26,12 +26,6 @@
+         android:key="ambient_display_category_when_to_show"
+         android:title="@string/ambient_display_category_triggers">
+ 
+-        <SwitchPreference
+-            android:key="ambient_display_always_on"
+-            android:title="@string/doze_always_on_title"
+-            android:summary="@string/doze_always_on_summary"
+-            settings:controller="com.android.settings.display.AmbientDisplayAlwaysOnPreferenceController" />
+-
+         <Preference
+             android:key="ambient_display_double_tap"
+             android:title="@string/ambient_display_title"
+diff --git a/res/xml/display_settings.xml b/res/xml/display_settings.xml
+index 5fa8da2143..5f8d3900a2 100644
+--- a/res/xml/display_settings.xml
++++ b/res/xml/display_settings.xml
+@@ -32,6 +32,12 @@
+         <intent android:action="com.android.intent.action.SHOW_BRIGHTNESS_DIALOG" />
+     </com.android.settingslib.RestrictedPreference>
+ 
++    <SwitchPreference
++        android:key="ambient_display_always_on"
++        android:title="@string/doze_always_on_title"
++        android:summary="@string/doze_always_on_summary"
++        settings:controller="com.android.settings.display.AmbientDisplayAlwaysOnPreferenceController" />
++
+     <com.android.settings.display.NightDisplayPreference
+         android:key="night_display"
+         android:title="@string/night_display_title"
+diff --git a/src/com/android/settings/display/AmbientDisplayAlwaysOnPreferenceController.java b/src/com/android/settings/display/AmbientDisplayAlwaysOnPreferenceController.java
+index e91ddbece9..421f6e8dbf 100644
+--- a/src/com/android/settings/display/AmbientDisplayAlwaysOnPreferenceController.java
++++ b/src/com/android/settings/display/AmbientDisplayAlwaysOnPreferenceController.java
+@@ -51,7 +51,7 @@ public class AmbientDisplayAlwaysOnPreferenceController extends TogglePreference
+         if (mConfig == null) {
+             mConfig = new AmbientDisplayConfiguration(mContext);
+         }
+-        return isAvailable(mConfig) ? AVAILABLE : UNSUPPORTED_ON_DEVICE;
++        return AVAILABLE;
+     }
+ 
+     @Override
+-- 
+2.20.0
+

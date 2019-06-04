@@ -1,0 +1,38 @@
+From 8b6a75ceb9e4aa416262784e0d5dc0f61ac9ecda Mon Sep 17 00:00:00 2001
+Message-Id: <8b6a75ceb9e4aa416262784e0d5dc0f61ac9ecda.1559645594.git.spookcity138@gmail.com>
+From: Rick M <spookcity138@gmail.com>
+Date: Tue, 4 Jun 2019 12:52:40 +0200
+Subject: [PATCH] Revert "livedisplay: Don't show display mode and color
+ tempertature on HWC2"
+
+This reverts commit 737407a53d982e672c307b2e3bf7f6f77daf496d.
+---
+ .../lineageparts/livedisplay/LiveDisplaySettings.java        | 5 -----
+ 1 file changed, 5 deletions(-)
+
+diff --git a/src/org/lineageos/lineageparts/livedisplay/LiveDisplaySettings.java b/src/org/lineageos/lineageparts/livedisplay/LiveDisplaySettings.java
+index 7205a51..5252164 100644
+--- a/src/org/lineageos/lineageparts/livedisplay/LiveDisplaySettings.java
++++ b/src/org/lineageos/lineageparts/livedisplay/LiveDisplaySettings.java
+@@ -28,7 +28,6 @@ import android.text.TextUtils;
+ import android.util.ArraySet;
+ import android.util.Log;
+ 
+-import com.android.internal.app.ColorDisplayController;
+ import com.android.internal.util.ArrayUtils;
+ 
+ import org.lineageos.lineageparts.R;
+@@ -171,10 +170,6 @@ public class LiveDisplaySettings extends SettingsPreferenceFragment implements S
+         mLiveDisplay.setOnPreferenceChangeListener(this);
+ 
+         mDisplayTemperature = (DisplayTemperature) findPreference(KEY_LIVE_DISPLAY_TEMPERATURE);
+-        if (ColorDisplayController.isAvailable(getContext())) {
+-            liveDisplayPrefs.removePreference(mLiveDisplay);
+-            liveDisplayPrefs.removePreference(mDisplayTemperature);
+-        }
+ 
+         mColorProfile = (ListPreference) findPreference(KEY_LIVE_DISPLAY_COLOR_PROFILE);
+         if (liveDisplayPrefs != null && mColorProfile != null
+-- 
+2.21.0
+

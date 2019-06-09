@@ -1,0 +1,69 @@
+From 2b338d89bb9e27ec123f98faee3af95d8e0efbe6 Mon Sep 17 00:00:00 2001
+Message-Id: <2b338d89bb9e27ec123f98faee3af95d8e0efbe6.1560077150.git.spookcity138@gmail.com>
+From: Rick M <spookcity138@gmail.com>
+Date: Sun, 9 Jun 2019 12:45:33 +0200
+Subject: [PATCH] Revert "LiveDisplayService: Disable ColorTemperature when
+ NightDisplay is available"
+
+This reverts commit f781a9399aeb3a6c4db78a8848188781c7c0720a.
+---
+ .../internal/display/LiveDisplayService.java      | 15 ++++-----------
+ 1 file changed, 4 insertions(+), 11 deletions(-)
+
+diff --git a/lineage/lib/main/java/org/lineageos/platform/internal/display/LiveDisplayService.java b/lineage/lib/main/java/org/lineageos/platform/internal/display/LiveDisplayService.java
+index f861912..48d8725 100644
+--- a/lineage/lib/main/java/org/lineageos/platform/internal/display/LiveDisplayService.java
++++ b/lineage/lib/main/java/org/lineageos/platform/internal/display/LiveDisplayService.java
+@@ -34,7 +34,6 @@ import android.os.Process;
+ import android.os.UserHandle;
+ import android.view.Display;
+ 
+-import com.android.internal.app.ColorDisplayController;
+ import com.android.server.LocalServices;
+ import com.android.server.ServiceThread;
+ 
+@@ -154,7 +153,6 @@ public class LiveDisplayService extends LineageSystemService {
+     @Override
+     public void onBootPhase(int phase) {
+         if (phase == PHASE_BOOT_COMPLETED) {
+-            final boolean isNightDisplayAvailable = ColorDisplayController.isAvailable(mContext);
+ 
+             mAwaitingNudge = getSunsetCounter() < 1;
+ 
+@@ -162,9 +160,7 @@ public class LiveDisplayService extends LineageSystemService {
+             mFeatures.add(mDHC);
+ 
+             mCTC = new ColorTemperatureController(mContext, mHandler, mDHC);
+-            if (!isNightDisplayAvailable) {
+-                mFeatures.add(mCTC);
+-            }
++            mFeatures.add(mCTC);
+ 
+             mOMC = new OutdoorModeController(mContext, mHandler);
+             mFeatures.add(mOMC);
+@@ -185,8 +181,7 @@ public class LiveDisplayService extends LineageSystemService {
+             int defaultMode = mContext.getResources().getInteger(
+                     org.lineageos.platform.internal.R.integer.config_defaultLiveDisplayMode);
+ 
+-            mConfig = new LiveDisplayConfig(capabilities,
+-                    isNightDisplayAvailable ? MODE_OFF : defaultMode,
++            mConfig = new LiveDisplayConfig(capabilities, defaultMode,
+                     mCTC.getDefaultDayTemperature(), mCTC.getDefaultNightTemperature(),
+                     mOMC.getDefaultAutoOutdoorMode(), mDHC.getDefaultAutoContrast(),
+                     mDHC.getDefaultCABC(), mDHC.getDefaultColorEnhancement(),
+@@ -208,10 +203,8 @@ public class LiveDisplayService extends LineageSystemService {
+             mState.mLowPowerMode =
+                     pmi.getLowPowerState(SERVICE_TYPE_DUMMY).globalBatterySaverEnabled;
+ 
+-            if (!isNightDisplayAvailable) {
+-                mTwilightTracker.registerListener(mTwilightListener, mHandler);
+-                mState.mTwilight = mTwilightTracker.getCurrentState();
+-            }
++            mTwilightTracker.registerListener(mTwilightListener, mHandler);
++            mState.mTwilight = mTwilightTracker.getCurrentState();
+ 
+             if (mConfig.hasModeSupport()) {
+                 mModeObserver = new ModeObserver(mHandler);
+-- 
+2.21.0
+

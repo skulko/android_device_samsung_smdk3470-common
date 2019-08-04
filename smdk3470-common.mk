@@ -171,6 +171,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     persist.sys.usb.config=mtp
 
+# Battery
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.config.small_battery=true
+
 # System properties
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.arch=exynos3470 \

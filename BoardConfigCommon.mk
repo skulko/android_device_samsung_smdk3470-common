@@ -93,6 +93,7 @@ BOARD_CUSTOM_BT_CONFIG := device/samsung/smdk3470-common/bluetooth/vnd_smdk3470.
 
 # Graphics
 USE_OPENGL_RENDERER := true
+TARGET_USES_GRALLOC1 := true
 TARGET_ADDITIONAL_GRALLOC_10_USAGE_BITS := 0x4000000
 BOARD_EGL_CFG := device/samsung/smdk3470-common/egl/egl.cfg
 

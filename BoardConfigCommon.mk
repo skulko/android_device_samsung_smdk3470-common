@@ -58,7 +58,9 @@ LZMA_RAMDISK_TARGETS := recovery
 TARGET_BOARD_PLATFORM := exynos3
 TARGET_SOC := exynos3470
 
-TARGET_LD_SHIM_LIBS := /system/vendor/lib/hw/camera.vendor.universal3470.so|libshim_camera.so
+TARGET_LD_SHIM_LIBS := \
+    /system/vendor/lib/hw/camera.vendor.universal3470.so|libshim_camera.so \
+    /system/lib/libexynoscamera.so|libexynoscamera_shim.so
 
 TARGET_PROCESS_SDK_VERSION_OVERRIDE += \
     /system/vendor/bin/hw/rild=27 \

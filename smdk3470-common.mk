@@ -61,7 +61,8 @@ PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.4-impl-legacy \
     android.hardware.camera.provider@2.4-service \
     android.hardware.camera.common@1.0-helper \
-    libshim_camera
+    libshim_camera \
+    libexynoscamera_shim
 
 # DRM
 PRODUCT_PACKAGES += \

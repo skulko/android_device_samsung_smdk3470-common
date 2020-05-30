@@ -87,6 +87,7 @@ PRODUCT_PACKAGES += \
     android.hardware.wifi@1.0-impl \
     android.hardware.wifi@1.0-service \
     libwpa_client \
+    macloader \
     hostapd \
     wificond \
     wifilogd \
@@ -123,10 +124,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     ebtables \
     ethertypes
-    
+
 # libstlport (only copies a prebuilt lib since oreo)
 #PRODUCT_PACKAGES += \
-#    libstlport 
+#    libstlport
 
 # RIL
 PRODUCT_PACKAGES += \

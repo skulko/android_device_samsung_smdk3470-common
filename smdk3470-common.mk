@@ -56,10 +56,11 @@ PRODUCT_COPY_FILES += \
 
 # Camera
 PRODUCT_PACKAGES += \
+    Snap \
     camera.universal3470 \
     camera.vendor.universal3470 \
     android.hardware.camera.provider@2.4-impl-legacy \
-    android.hardware.camera.provider@2.4-service \
+    android.hardware.camera.provider@2.4-service.kminilte \
     libshim_camera
 
 # DRM

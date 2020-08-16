@@ -1,0 +1,5 @@
+cc_library_static {
+    name: "camera_parameters_samsung_smdk3470",
+    include_dirs: ["device/samsung/smdk3470-common/include"],
+    srcs: ["CameraParameters.cpp"],
+}

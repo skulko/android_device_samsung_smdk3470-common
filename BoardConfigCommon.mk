@@ -134,3 +134,4 @@ WIFI_DRIVER_FW_PATH_STA          := "/vendor/etc/wifi/bcmdhd_sta.bin"
 WIFI_DRIVER_FW_PATH_AP           := "/vendor/etc/wifi/bcmdhd_apsta.bin"
 WIFI_DRIVER_FW_PATH_P2P          := "/vendor/etc/wifi/bcmdhd_p2p.bin"
 WIFI_BAND                        := 802_11_ABG
+WIFI_HIDL_FEATURE_DISABLE_AP_MAC_RANDOMIZATION := true

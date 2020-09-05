@@ -36,6 +36,7 @@ TARGET_NO_BOOTLOADER := true
 
 # Filesystems
 BOARD_FLASH_BLOCK_SIZE := 131072
+BOARD_HAS_LARGE_FILESYSTEM := true
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
 
@@ -57,7 +58,6 @@ LZMA_RAMDISK_TARGETS := recovery
 # Platform
 TARGET_BOARD_PLATFORM := exynos3
 TARGET_SOC := exynos3470
-
 TARGET_LD_SHIM_LIBS := /system/vendor/lib/hw/camera.vendor.universal3470.so|libshim_camera.so
 
 TARGET_PROCESS_SDK_VERSION_OVERRIDE += \
@@ -96,6 +96,7 @@ USE_OPENGL_RENDERER := true
 TARGET_USES_GRALLOC1 := true
 TARGET_ADDITIONAL_GRALLOC_10_USAGE_BITS := 0x4000000
 BOARD_EGL_CFG := device/samsung/smdk3470-common/egl/egl.cfg
+BOARD_HDMI_INCAPABLE := true
 
 # Camera
 TARGET_HAS_LEGACY_CAMERA_HAL1 := true

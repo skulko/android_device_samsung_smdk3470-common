@@ -46,7 +46,9 @@ PRODUCT_PACKAGES += \
 
 # HW composer
 PRODUCT_PACKAGES += \
-    libion
+    libion_exynos \
+    libcsc \
+    libhwjpeg
 
 # Media
 PRODUCT_COPY_FILES += \
@@ -56,6 +58,7 @@ PRODUCT_COPY_FILES += \
 
 # Camera
 PRODUCT_PACKAGES += \
+    Gallery2 \
     Snap \
     camera.universal3470 \
     camera.vendor.universal3470 \
@@ -65,7 +68,8 @@ PRODUCT_PACKAGES += \
 
 # DRM
 PRODUCT_PACKAGES += \
-    android.hardware.drm@1.0-impl
+    android.hardware.drm@1.0-impl \
+    android.hardware.drm@1.0-service
 
 # Graphics
 PRODUCT_PACKAGES += \
@@ -80,7 +84,9 @@ PRODUCT_PACKAGES += \
 
 # Memory
 PRODUCT_PACKAGES += \
-    android.hardware.memtrack@1.0-impl
+    android.hardware.memtrack@1.0-impl \
+    android.hardware.memtrack@1.0-service \
+    memtrack.exynos3
 
 # Wifi
 PRODUCT_PACKAGES += \
@@ -162,7 +168,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # GNSS HAL
 PRODUCT_PACKAGES += \
-    android.hardware.gnss@1.0-impl
+    android.hardware.gnss@1.0-impl \
+    android.hardware.gnss@1.0-service
 
 # Keymaster
 PRODUCT_PACKAGES += \
@@ -184,10 +191,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.opengles.version=131072 \
     ro.zygote.disable_gl_preload=true
 
-# OpenMAX-shims
+# OpenMAX
 PRODUCT_PACKAGES += \
     libui_shim \
-    libExynosOMX_shim
+    libExynosOMX_shim \
+    libstagefrighthw
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/android.hardware.media.omx@1.0-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.media.omx@1.0-service.rc

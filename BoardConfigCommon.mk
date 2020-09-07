@@ -36,6 +36,7 @@ TARGET_NO_BOOTLOADER := true
 
 # Filesystems
 BOARD_FLASH_BLOCK_SIZE := 131072
+BOARD_HAS_LARGE_FILESYSTEM := true
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
 
@@ -57,7 +58,6 @@ LZMA_RAMDISK_TARGETS := recovery
 # Platform
 TARGET_BOARD_PLATFORM := exynos3
 TARGET_SOC := exynos3470
-
 TARGET_LD_SHIM_LIBS := /system/vendor/lib/hw/camera.vendor.universal3470.so|libshim_camera.so
 
 TARGET_PROCESS_SDK_VERSION_OVERRIDE += \
@@ -96,9 +96,15 @@ USE_OPENGL_RENDERER := true
 TARGET_USES_GRALLOC1 := true
 TARGET_ADDITIONAL_GRALLOC_10_USAGE_BITS := 0x4000000
 BOARD_EGL_CFG := device/samsung/smdk3470-common/egl/egl.cfg
+BOARD_HDMI_INCAPABLE := true
 
 # Camera
 TARGET_HAS_LEGACY_CAMERA_HAL1 := true
+USE_DEVICE_SPECIFIC_CAMERA := true
+TARGET_SPECIFIC_CAMERA_PARAMETER_LIBRARY := //$(COMMON_PATH):camera_parameters_samsung_smdk3470
+TARGET_NEED_DISABLE_FACE_DETECTION := true
+TARGET_NEED_DISABLE_FACE_DETECTION_BOTH_CAMERAS := true
+TARGET_NEED_FFC_PICTURE_FIXUP := true
 
 # RIL
 BOARD_PROVIDES_LIBRIL := true
@@ -123,7 +129,10 @@ BOARD_WPA_SUPPLICANT_DRIVER      := NL80211
 BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_${BOARD_WLAN_DEVICE}
 WPA_SUPPLICANT_VERSION           := VER_0_8_X
 WIFI_DRIVER_FW_PATH_PARAM        := "/sys/module/dhd/parameters/firmware_path"
+WIFI_DRIVER_NVRAM_PATH_PARAM     := "/sys/module/dhd/parameters/nvram_path"
+WIFI_DRIVER_NVRAM_PATH           := "/system/etc/wifi/nvram_net.txt"
 WIFI_DRIVER_FW_PATH_STA          := "/vendor/etc/wifi/bcmdhd_sta.bin"
 WIFI_DRIVER_FW_PATH_AP           := "/vendor/etc/wifi/bcmdhd_apsta.bin"
 WIFI_DRIVER_FW_PATH_P2P          := "/vendor/etc/wifi/bcmdhd_p2p.bin"
 WIFI_BAND                        := 802_11_ABG
+WIFI_HIDL_FEATURE_DISABLE_AP_MAC_RANDOMIZATION := true

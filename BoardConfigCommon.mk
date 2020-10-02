@@ -38,7 +38,6 @@ TARGET_NO_BOOTLOADER := true
 BOARD_FLASH_BLOCK_SIZE := 131072
 BOARD_HAS_LARGE_FILESYSTEM := true
 TARGET_USERIMAGES_USE_EXT4 := true
-TARGET_USERIMAGES_USE_F2FS := true
 
 BOARD_CUSTOM_BOOTIMG := true
 BOARD_CUSTOM_BOOTIMG_MK := hardware/samsung/mkbootimg.mk
@@ -64,6 +63,9 @@ TARGET_PROCESS_SDK_VERSION_OVERRIDE += \
     /system/vendor/bin/hw/rild=27 \
     /system/vendor/bin/hw/android.hardware.camera.provider@2.4-service=22 \
     /system/bin/mediaserver=22
+
+TARGET_HAS_NO_POWER_STATS := true
+TARGET_HAS_NO_WLAN_STATS := true
 
 # OpenMAX-shims
 TARGET_LD_SHIM_LIBS += \

@@ -127,11 +127,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     FlipFlap
 
-# IPv6 tethering
-PRODUCT_PACKAGES += \
-    ebtables \
-    ethertypes
-
 # libstlport (only copies a prebuilt lib since oreo)
 #PRODUCT_PACKAGES += \
 #    libstlport
